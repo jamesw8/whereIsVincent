@@ -3,8 +3,10 @@ import os
 import leagReq
 
 app = Flask(__name__)
-
-app.secret_key = os.environ.get('secret',-1)
+if 1 == 1:
+	app.secret_key = "joba"
+else:
+	app.secret_key = os.environ.get('secret',-1)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():

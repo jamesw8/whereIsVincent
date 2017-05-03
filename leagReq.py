@@ -3,10 +3,13 @@ import simplejson as json
 import os
 import time
 
-def lookUp(summoner):	
-	# api = open("apikey")
-	# key = api.read()
-	key = str(os.environ.get('apikey',-1))
+def lookUp(summoner):
+	if 0 == 1:	
+		api = open("apikey")
+		key = api.read()
+		api.close()
+	else:
+		key = str(os.environ.get('apikey',-1))
 	if(key == -1):
 		return "No API key found"
 
@@ -24,8 +27,10 @@ def lookUp(summoner):
 		dic = json.loads(userMatch.text)
 		data = json.dumps(dic, sort_keys=True, indent=4, separators=(',', ': '))
 		print(dic)
-		string = str(	time.gmtime(int(dic['gameStartTime'])-14400000)		)
-		api.close()
+		t = (time.time()-float(dic['gameStartTime'])/1000)	
+		print(t)
+
+		string = str(	"Ingame for " + str(int(t/60)) + " minutes and " + str(int(t%60)) + " seconds." 	)
 		return string
 	except:
 		return "Not in game"
