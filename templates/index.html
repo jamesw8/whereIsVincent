@@ -1,0 +1,17 @@
+<html>
+	<h1>Where Is Vincent???</h1>
+	<br>
+	<form method = 'POST'>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			<div class=flashes>
+				{% for message in messages %}
+					{{ message }}
+				{% endfor %}
+			</div>
+			{% endif %}
+		{% endwith %}
+		<br>
+		<input type="submit" value="Is Vincent Ingame?">
+	</form>
+</html>
