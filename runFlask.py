@@ -3,8 +3,10 @@ import os
 import leagReq
 
 app = Flask(__name__)
-if 1 == 1:
-	app.secret_key = "joba"
+if 0 == 1:
+	secret = open("secret")
+	app.secret_key = secret.read()
+	secret.close()
 else:
 	app.secret_key = os.environ.get('secret',-1)
 
