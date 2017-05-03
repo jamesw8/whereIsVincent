@@ -7,7 +7,7 @@ def lookUp(summoner):
 	# api = open("apikey")
 	# key = api.read()
 	key = str(os.environ.get('apikey',-1))
-	if(api == -1):
+	if(key == -1):
 		return "No API key found"
 
 	url1 = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + summoner.lower() + "?api_key=" + key
